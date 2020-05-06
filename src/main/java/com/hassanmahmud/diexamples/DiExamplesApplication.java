@@ -14,11 +14,14 @@ public class DiExamplesApplication {
 
         var ctx = SpringApplication.run(DiExamplesApplication.class, args);
 
+        System.out.println("-------- Primary Bean");
+
         var myController = (MyController) ctx.getBean("myController");
 
         String greeting = myController.sayHello();
 
         System.out.println(greeting);
+
 
         System.out.println("------- Property");
 
