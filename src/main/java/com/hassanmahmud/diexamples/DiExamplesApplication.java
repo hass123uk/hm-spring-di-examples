@@ -1,9 +1,6 @@
 package com.hassanmahmud.diexamples;
 
-import com.hassanmahmud.diexamples.controllers.ConstructorInjectedController;
-import com.hassanmahmud.diexamples.controllers.MyController;
-import com.hassanmahmud.diexamples.controllers.PropertyInjectedController;
-import com.hassanmahmud.diexamples.controllers.SetterBasedController;
+import com.hassanmahmud.diexamples.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -13,6 +10,12 @@ public class DiExamplesApplication {
     public static void main(String[] args) {
 
         var ctx = SpringApplication.run(DiExamplesApplication.class, args);
+
+        System.out.println("-------- Translations");
+
+        I18nController i18NController = (I18nController) ctx.getBean("i18nController");
+
+        System.out.println(i18NController.sayHello());
 
         System.out.println("-------- Primary Bean");
 
