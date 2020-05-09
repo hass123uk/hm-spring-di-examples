@@ -1,0 +1,34 @@
+{
+  "properties": [
+    {
+      "name": "hm.username",
+      "type": "java.lang.String",
+      "description": "Description for hm.username."
+    },
+    {
+      "name": "hm.password",
+      "type": "java.lang.String",
+      "description": "Description for hm.password."
+    },
+    {
+      "name": "hm.url",
+      "type": "java.lang.String",
+      "description": "Description for hm.url."
+    },
+    {
+      "name": "hm.jms.username",
+      "type": "java.lang.String",
+      "description": "Description for hm.jms.username."
+    },
+    {
+      "name": "hm.jms.password",
+      "type": "java.lang.String",
+      "description": "Description for hm.jms.password."
+    },
+    {
+      "name": "hm.jms.url",
+      "type": "java.lang.String",
+      "description": "Description for hm.jms.url."
+    }
+  ]
+}
