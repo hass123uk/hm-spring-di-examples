@@ -1,8 +1,8 @@
 package com.hassanmahmud.diexamples.services;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
-@Controller
+@Service
 public class PropertyGreetingServiceImpl implements GreetingService{
     @Override
     public String sayGreeting() {
