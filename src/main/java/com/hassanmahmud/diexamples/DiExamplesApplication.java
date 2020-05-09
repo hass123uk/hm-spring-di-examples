@@ -2,6 +2,7 @@ package com.hassanmahmud.diexamples;
 
 import com.hassanmahmud.diexamples.controllers.*;
 import com.hassanmahmud.diexamples.examplebean.FakeDataSource;
+import com.hassanmahmud.diexamples.examplebean.FakeJmsBroker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,6 +18,13 @@ public class DiExamplesApplication {
         System.out.println("Username: " + fakeDataSource.getUser());
         System.out.println("Password: " + fakeDataSource.getPassword());
         System.out.println("DB URL: " + fakeDataSource.getUrl());
+
+        System.out.println();
+
+        var fakeJmsBroker = ctx.getBean(FakeJmsBroker.class);
+        System.out.println("Username: " + fakeJmsBroker.getUser());
+        System.out.println("Password: " + fakeJmsBroker.getPassword());
+        System.out.println("DB URL: " + fakeJmsBroker.getUrl());
 
         System.out.println("-------- Factory services");
         FactoryBasedController factoryBasedController =
