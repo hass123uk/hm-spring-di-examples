@@ -3,3 +3,10 @@ hm:
     username: JMS Username
     password: pass1
     url: SomeUrl
+
+---
+spring:
+  profiles: ES
+hm:
+  jms:
+    username: Spanish JMS Username
