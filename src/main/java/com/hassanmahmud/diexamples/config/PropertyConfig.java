@@ -20,8 +20,8 @@ public class PropertyConfig {
     @Value("${hm.password}")
     String password;
 
-    @Value("${hm.dburl}")
-    String dburl;
+    @Value("${hm.url}")
+    String url;
 
     public PropertyConfig(Environment environment) {
         this.environment = environment;
@@ -37,7 +37,7 @@ public class PropertyConfig {
         var fakeDataSource = new FakeDataSource();
         fakeDataSource.setUser(environment.getProperty("USERNAME"));
         fakeDataSource.setPassword(password);
-        fakeDataSource.setUrl(dburl);
+        fakeDataSource.setUrl(url);
         return fakeDataSource;
     }
 }
