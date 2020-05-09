@@ -1,6 +1,7 @@
 package com.hassanmahmud.diexamples;
 
 import com.hassanmahmud.diexamples.controllers.*;
+import com.hassanmahmud.diexamples.examplebean.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,17 +12,11 @@ public class DiExamplesApplication {
 
         var ctx = SpringApplication.run(DiExamplesApplication.class, args);
 
-        System.out.println("------- Default Profiles");
-        var defaultProfiles = ctx.getEnvironment().getDefaultProfiles();
-        for (String profile : defaultProfiles) {
-            System.out.println(profile + ", ");
-        }
-
-        System.out.println("------- Active Profiles");
-        var activeProfiles = ctx.getEnvironment().getActiveProfiles();
-        for (String profile : activeProfiles) {
-            System.out.println(profile + ", ");
-        }
+        System.out.println("------- Load from property file:");
+        var fakeDataSource = ctx.getBean(FakeDataSource.class);
+        System.out.println("Username: " + fakeDataSource.getUser());
+        System.out.println("Password: " + fakeDataSource.getPassword());
+        System.out.println("DB URL: " + fakeDataSource.getUrl());
 
         System.out.println("-------- Factory services");
         FactoryBasedController factoryBasedController =
