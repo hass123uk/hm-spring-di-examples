@@ -11,39 +11,45 @@ public class DiExamplesApplication {
 
         var ctx = SpringApplication.run(DiExamplesApplication.class, args);
 
-        System.out.println("-------- Translations");
+        System.out.println("------- Default Profiles");
+        var defaultProfiles = ctx.getEnvironment().getDefaultProfiles();
+        for (String profile : defaultProfiles) {
+            System.out.println(profile + ", ");
+        }
 
+        System.out.println("------- Active Profiles");
+        var activeProfiles = ctx.getEnvironment().getActiveProfiles();
+        for (String profile : activeProfiles) {
+            System.out.println(profile + ", ");
+        }
+
+        System.out.println("-------- Factory services");
+        FactoryBasedController factoryBasedController =
+                ctx.getBean("factoryBasedController", FactoryBasedController.class);
+        System.out.println(factoryBasedController.sayHello());
+
+        System.out.println("-------- I18n Controller");
         I18nController i18NController = (I18nController) ctx.getBean("i18nController");
-
         System.out.println(i18NController.sayHello());
 
         System.out.println("-------- Primary Bean");
-
         var myController = (MyController) ctx.getBean("myController");
-
-        String greeting = myController.sayHello();
-
-        System.out.println(greeting);
-
+        System.out.println(myController.sayHello());
 
         System.out.println("------- Property");
-
-        PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
-
+        PropertyInjectedController propertyInjectedController =
+                (PropertyInjectedController) ctx.getBean("propertyInjectedController");
         System.out.println(propertyInjectedController.getGreeting());
 
         System.out.println("------- Setter");
-
-        SetterBasedController setterBasedController = (SetterBasedController) ctx.getBean("setterBasedController");
-
+        SetterBasedController setterBasedController =
+                (SetterBasedController) ctx.getBean("setterBasedController");
         System.out.println(setterBasedController.getGreeting());
 
         System.out.println("------- Constructor");
-
-        ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
-
+        ConstructorInjectedController constructorInjectedController =
+                (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
         System.out.println(constructorInjectedController.getGreeting());
-
     }
 
 }
